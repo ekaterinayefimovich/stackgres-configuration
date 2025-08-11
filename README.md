@@ -76,7 +76,7 @@ spec:
       storageClass: "standard-rwo"
 ```
 
-Как только кластер будет полностью развернут и доступен, необходимо подключиться к Мастеру и установить [extension TimescaleDB](https://stackgres.io/doc/1.16/administration/extensions/).
+Как только кластер будет полностью развернут и доступен, необходимо подключиться к Мастеру и установить [extension TimescaleDB](https://stackgres.io/doc/latest/administration/extensions/).
 
 Установка происходит при помощи plsql команды:
 ```sql
@@ -102,7 +102,7 @@ ALTER EXTENSION timescaledb UPDATE;
 
 [Официальная документация.](https://stackgres.io/doc/latest/administration/manual-restart/)
 
-Реализуется при помощи CRD [SGDbOps](https://stackgres.io/doc/1.16/reference/crd/sgdbops/).
+Реализуется при помощи CRD [SGDbOps](https://stackgres.io/doc/1.17/reference/crd/sgdbops/).
 
 В конфигурации так же можно указать:
 ```yaml
