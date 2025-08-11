@@ -1,0 +1,30 @@
+apiVersion: stackgres.io/v1
+kind: SGCluster
+metadata:
+  name: timescale-db
+  namespace: timescale-db-namespace
+spec:
+  instances: 3
+  postgres:
+    version: '14.15'
+    extensions:
+      - name: timescaledb
+        version: '2.17.2'
+  sgInstanceProfile: "size-small"
+  configurations:
+    sgPostgresConfig: "timescaledb-config"
+    observability:
+      prometheusAutobind: true
+    backups:
+      - sgObjectStorage: "gcs-backup-config"
+        cronSchedule: "0 0 * * *"
+        retention: 7
+  managedSql:
+    scripts:
+    - sgScript: db-setup
+  pods:
+    persistentVolume:
+      size: "5Gi"
+      storageClass: "standard-rwo"
+
+ 

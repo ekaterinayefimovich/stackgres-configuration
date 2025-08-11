@@ -1,0 +1,15 @@
+apiVersion: stackgres.io/v1
+kind: SGScript
+metadata:
+  namespace: timescale-db-namespace
+  name: db-setup
+spec:
+  scripts:
+  - name: create-db-user-script
+    scriptFrom:
+      secretKeyRef:
+        name: my-db-creds-secret
+        key: create-db-user-sql
+  - name: create-db
+    script: |
+      create database "timescale-db" owner db_user;

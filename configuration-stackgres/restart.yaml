@@ -1,0 +1,10 @@
+apiVersion: stackgres.io/v1
+kind: SGDbOps
+metadata:
+  namespace: timescale-db-namespace
+  name: restart-cluster-1
+spec:
+  sgCluster: timescale-db
+  op: restart
+  restart:
+    method: InPlace

@@ -1,0 +1,9 @@
+apiVersion: stackgres.io/v1
+kind: SGPostgresConfig
+metadata:
+  namespace: timescale-db-namespace
+  name: timescaledb-config
+spec:
+  postgresVersion: '14'
+  postgresql.conf:
+    shared_preload_libraries: timescaledb,pg_stat_statements

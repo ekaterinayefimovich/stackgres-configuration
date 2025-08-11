@@ -1,0 +1,8 @@
+apiVersion: stackgres.io/v1
+kind: SGInstanceProfile
+metadata:
+  namespace: timescale-db-namespace
+  name: size-small
+spec:
+  cpu: "1"
+  memory: "2Gi"

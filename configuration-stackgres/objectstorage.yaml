@@ -1,0 +1,14 @@
+apiVersion: stackgres.io/v1beta1
+kind: SGObjectStorage
+metadata:
+  namespace: timescale-db-namespace
+  name: gcs-backup-config
+spec:
+  type: gcs
+  gcs:
+    bucket: backup-timescale-db-of-stackgres
+    gcpCredentials:
+      secretKeySelectors:
+        serviceAccountJSON: 
+          name: gcp-backup-bucket-secret
+          key: sa-key.json
